@@ -2,7 +2,8 @@ from ui_main_window import Ui_MainWindow
 from particula import Particula
 from registro_particulas import Registro_particulas
 
-from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QTableWidgetItem
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QTableWidgetItem, QGraphicsScene
+from PySide2.QtGui import QPen, QColor, QTransform
 
 from PySide2.QtCore import Slot
 
@@ -27,6 +28,13 @@ class MainWindow(QMainWindow):
         self.ui.imprimir_tabla_pushButton.clicked.connect(self.imprimir_tabla)
         self.ui.limpiar_tabla_pushButton.clicked.connect(self.limpiar_tabla)
         self.ui.buscar_tabla_pushButton.clicked.connect(self.buscar_tabla)
+        
+        self.scene = QGraphicsScene()
+        self.ui.scene.setScene(self.scene)
+        
+        self.ui.imprimir_particula_scene.clicked.connect(self.buscar_particula_scene)
+        self.ui.imprimir_todas_scene.clicked.connect(self.imprimir_todas_scene)
+        self.ui.limpiar_scene.clicked.connect(self.limpiar_scene)
         
         self.ui.actionGuardar.triggered.connect(self.guardar_archivo)
         self.ui.actionAbrir.triggered.connect(self.cargar_archivo)
@@ -170,7 +178,69 @@ class MainWindow(QMainWindow):
             self.ui.tableWidget.setItem(row, i, particula_items[i])
 
         
+
+#___Scene____________________________________________________________
+
+
+    @Slot()
+    def wheelEvent(self, event):
+        print(event.delta())
+        if event.delta() > 0:
+            self.ui.scene.scale(1.2, 1.2)
+        else:
+            self.ui.scene.scale(0.8, 0.8)
+
+
+
+    @Slot()
+    def imprimir_particula_scene(self, particula:Particula):
+        x_ori = particula.posicion_origen.x
+        y_ori = particula.posicion_origen.y
+        x_des = particula.posicion_destino.x
+        y_des = particula.posicion_destino.y
         
+        color = QColor(particula.color[0], particula.color[1], particula.color[2])
+        pen = QPen()
+        pen.setWidth(4)
+        pen.setColor(color)
+        
+        self.scene.addEllipse(x_ori, y_ori, 3, 3, pen)
+        self.scene.addEllipse(x_des, y_des, 3, 3, pen)
+        self.scene.addLine(x_ori, y_ori, x_des, y_des, pen)
+
+
+
+    @Slot()
+    def imprimir_todas_scene(self):
+        self.limpiar_scene()
+        for particula in self.registro_particulas:
+            self.imprimir_particula_scene(particula)
+
+
+
+    @Slot()
+    def buscar_particula_scene(self):
+        situacion_busqueda = False  
+        id = self.ui.buscar_scene_lineEdit.text()
+        
+        for particula in self.registro_particulas:
+            if id == particula.id:
+                self.limpiar_scene()
+                self.imprimir_particula_scene(particula)
+                
+                situacion_busqueda = True
+                return
+            
+        if situacion_busqueda != True:
+            QMessageBox.warning(self, "Alerta", f"Problema al encontrar particula con id = '{id}'")
+            
+            
+            
+    @Slot()
+    def limpiar_scene(self):
+        self.scene.clear()
+
+
 #___Archivos_________________________________________________________        
 
 

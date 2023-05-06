@@ -262,6 +262,36 @@ class Ui_MainWindow(object):
         self.gridLayout_6.addWidget(self.frame_4, 2, 0, 1, 1)
 
         self.tabWidget.addTab(self.tab2, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.gridLayout_7 = QGridLayout(self.tab_2)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.imprimir_particula_scene = QPushButton(self.tab_2)
+        self.imprimir_particula_scene.setObjectName(u"imprimir_particula_scene")
+
+        self.gridLayout_7.addWidget(self.imprimir_particula_scene, 0, 4, 1, 1)
+
+        self.scene = QGraphicsView(self.tab_2)
+        self.scene.setObjectName(u"scene")
+
+        self.gridLayout_7.addWidget(self.scene, 1, 0, 1, 5)
+
+        self.buscar_scene_lineEdit = QLineEdit(self.tab_2)
+        self.buscar_scene_lineEdit.setObjectName(u"buscar_scene_lineEdit")
+
+        self.gridLayout_7.addWidget(self.buscar_scene_lineEdit, 0, 0, 1, 4)
+
+        self.imprimir_todas_scene = QPushButton(self.tab_2)
+        self.imprimir_todas_scene.setObjectName(u"imprimir_todas_scene")
+
+        self.gridLayout_7.addWidget(self.imprimir_todas_scene, 2, 0, 1, 2)
+
+        self.limpiar_scene = QPushButton(self.tab_2)
+        self.limpiar_scene.setObjectName(u"limpiar_scene")
+
+        self.gridLayout_7.addWidget(self.limpiar_scene, 2, 3, 1, 2)
+
+        self.tabWidget.addTab(self.tab_2, "")
 
         self.formLayout.setWidget(0, QFormLayout.SpanningRole, self.tabWidget)
 
@@ -316,6 +346,10 @@ class Ui_MainWindow(object):
         self.imprimir_tabla_pushButton.setText(QCoreApplication.translate("MainWindow", u"Imprimir Tabla", None))
         self.limpiar_tabla_pushButton.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab2), QCoreApplication.translate("MainWindow", u"Tabla de busqueda", None))
+        self.imprimir_particula_scene.setText(QCoreApplication.translate("MainWindow", u"Imprimir Particula", None))
+        self.imprimir_todas_scene.setText(QCoreApplication.translate("MainWindow", u"Imprimir Todas", None))
+        self.limpiar_scene.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"P\u00e1gina", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 

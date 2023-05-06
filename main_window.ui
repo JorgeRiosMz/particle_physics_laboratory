@@ -21,7 +21,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -324,6 +324,40 @@
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Página</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="4">
+         <widget class="QPushButton" name="imprimir_particula_scene">
+          <property name="text">
+           <string>Imprimir Particula</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="5">
+         <widget class="QGraphicsView" name="scene"/>
+        </item>
+        <item row="0" column="0" colspan="4">
+         <widget class="QLineEdit" name="buscar_scene_lineEdit"/>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QPushButton" name="imprimir_todas_scene">
+          <property name="text">
+           <string>Imprimir Todas</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3" colspan="2">
+         <widget class="QPushButton" name="limpiar_scene">
+          <property name="text">
+           <string>Limpiar</string>
+          </property>
          </widget>
         </item>
        </layout>

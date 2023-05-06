@@ -22,6 +22,12 @@ class Ui_MainWindow(object):
         self.actionGuardar.setObjectName(u"actionGuardar")
         self.actionAbrir = QAction(MainWindow)
         self.actionAbrir.setObjectName(u"actionAbrir")
+        self.actionPor_ID = QAction(MainWindow)
+        self.actionPor_ID.setObjectName(u"actionPor_ID")
+        self.actionPor_Distancia = QAction(MainWindow)
+        self.actionPor_Distancia.setObjectName(u"actionPor_Distancia")
+        self.actionPor_Velocidad = QAction(MainWindow)
+        self.actionPor_Velocidad.setObjectName(u"actionPor_Velocidad")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.formLayout = QFormLayout(self.centralwidget)
@@ -93,11 +99,13 @@ class Ui_MainWindow(object):
 
         self.origen_x_spinBox = QSpinBox(self.frame_2)
         self.origen_x_spinBox.setObjectName(u"origen_x_spinBox")
+        self.origen_x_spinBox.setMaximum(155)
 
         self.gridLayout_2.addWidget(self.origen_x_spinBox, 1, 1, 1, 3)
 
         self.origen_y_spinBox = QSpinBox(self.frame_2)
         self.origen_y_spinBox.setObjectName(u"origen_y_spinBox")
+        self.origen_y_spinBox.setMaximum(155)
 
         self.gridLayout_2.addWidget(self.origen_y_spinBox, 2, 1, 1, 3)
 
@@ -109,11 +117,13 @@ class Ui_MainWindow(object):
 
         self.direccion_x_spinBox = QSpinBox(self.frame_2)
         self.direccion_x_spinBox.setObjectName(u"direccion_x_spinBox")
+        self.direccion_x_spinBox.setMaximum(155)
 
         self.gridLayout_2.addWidget(self.direccion_x_spinBox, 4, 1, 1, 3)
 
         self.direccion_y_spinBox = QSpinBox(self.frame_2)
         self.direccion_y_spinBox.setObjectName(u"direccion_y_spinBox")
+        self.direccion_y_spinBox.setMaximum(155)
 
         self.gridLayout_2.addWidget(self.direccion_y_spinBox, 5, 1, 1, 3)
 
@@ -165,6 +175,7 @@ class Ui_MainWindow(object):
 
         self.green_spinBox = QSpinBox(self.frame)
         self.green_spinBox.setObjectName(u"green_spinBox")
+        self.green_spinBox.setMaximum(255)
 
         self.gridLayout.addWidget(self.green_spinBox, 2, 1, 1, 1)
 
@@ -176,6 +187,7 @@ class Ui_MainWindow(object):
 
         self.blue_spinBox = QSpinBox(self.frame)
         self.blue_spinBox.setObjectName(u"blue_spinBox")
+        self.blue_spinBox.setMaximum(255)
 
         self.gridLayout.addWidget(self.blue_spinBox, 3, 1, 1, 1)
 
@@ -301,14 +313,20 @@ class Ui_MainWindow(object):
         self.menubar.setGeometry(QRect(0, 0, 818, 30))
         self.menuArchivo = QMenu(self.menubar)
         self.menuArchivo.setObjectName(u"menuArchivo")
+        self.menuOrdenar = QMenu(self.menubar)
+        self.menuOrdenar.setObjectName(u"menuOrdenar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
         self.menubar.addAction(self.menuArchivo.menuAction())
+        self.menubar.addAction(self.menuOrdenar.menuAction())
         self.menuArchivo.addAction(self.actionGuardar)
         self.menuArchivo.addAction(self.actionAbrir)
+        self.menuOrdenar.addAction(self.actionPor_ID)
+        self.menuOrdenar.addAction(self.actionPor_Distancia)
+        self.menuOrdenar.addAction(self.actionPor_Velocidad)
 
         self.retranslateUi(MainWindow)
 
@@ -322,6 +340,9 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.actionGuardar.setText(QCoreApplication.translate("MainWindow", u"Guardar (ctrl + s)", None))
         self.actionAbrir.setText(QCoreApplication.translate("MainWindow", u"Abrir (ctrl + o)", None))
+        self.actionPor_ID.setText(QCoreApplication.translate("MainWindow", u"Por ID", None))
+        self.actionPor_Distancia.setText(QCoreApplication.translate("MainWindow", u"Por Distancia", None))
+        self.actionPor_Velocidad.setText(QCoreApplication.translate("MainWindow", u"Por Velocidad", None))
         self.registro_label.setText(QCoreApplication.translate("MainWindow", u"Registro", None))
         self.disponibilidad_pushButton.setText(QCoreApplication.translate("MainWindow", u"Comprobar disponibilidad", None))
         self.origen_label.setText(QCoreApplication.translate("MainWindow", u"Origen", None))
@@ -351,5 +372,6 @@ class Ui_MainWindow(object):
         self.limpiar_scene.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"P\u00e1gina", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
+        self.menuOrdenar.setTitle(QCoreApplication.translate("MainWindow", u"Ordenar", None))
     # retranslateUi
 

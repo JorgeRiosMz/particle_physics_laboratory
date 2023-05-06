@@ -36,6 +36,10 @@ class MainWindow(QMainWindow):
         self.ui.imprimir_todas_scene.clicked.connect(self.imprimir_todas_scene)
         self.ui.limpiar_scene.clicked.connect(self.limpiar_scene)
         
+        self.ui.actionPor_Distancia.triggered.connect(self.sort_by_distancia)
+        self.ui.actionPor_Velocidad.triggered.connect(self.sort_by_velocidad)
+        self.ui.actionPor_ID.triggered.connect(self.sort_by_id)
+        
         self.ui.actionGuardar.triggered.connect(self.guardar_archivo)
         self.ui.actionAbrir.triggered.connect(self.cargar_archivo)
         
@@ -239,6 +243,28 @@ class MainWindow(QMainWindow):
     @Slot()
     def limpiar_scene(self):
         self.scene.clear()
+
+
+#___Ordenamientos____________________________________________________
+
+    def get_p_id(self, particula):
+        return particula.id
+    def get_p_distancia(self, particula):
+        return particula.movimiento.distancia
+    def get_p_velocidad(self, particula):
+        return particula.movimiento.velocidad
+    
+    @Slot()
+    def sort_by_id(self):
+        self.registro_particulas.particulas.sort(key = self.get_p_id)
+        
+    @Slot()
+    def sort_by_distancia(self):
+        self.registro_particulas.particulas.sort(key = self.get_p_distancia, reverse = True) 
+    
+    @Slot()
+    def sort_by_velocidad(self):
+        self.registro_particulas.particulas.sort(key = self.get_p_velocidad)
 
 
 #___Archivos_________________________________________________________        

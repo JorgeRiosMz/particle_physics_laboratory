@@ -118,10 +118,18 @@
             </widget>
            </item>
            <item row="1" column="1" colspan="3">
-            <widget class="QSpinBox" name="origen_x_spinBox"/>
+            <widget class="QSpinBox" name="origen_x_spinBox">
+             <property name="maximum">
+              <number>155</number>
+             </property>
+            </widget>
            </item>
            <item row="2" column="1" colspan="3">
-            <widget class="QSpinBox" name="origen_y_spinBox"/>
+            <widget class="QSpinBox" name="origen_y_spinBox">
+             <property name="maximum">
+              <number>155</number>
+             </property>
+            </widget>
            </item>
            <item row="4" column="0">
             <widget class="QLabel" name="direccion_x_label">
@@ -134,10 +142,18 @@
             </widget>
            </item>
            <item row="4" column="1" colspan="3">
-            <widget class="QSpinBox" name="direccion_x_spinBox"/>
+            <widget class="QSpinBox" name="direccion_x_spinBox">
+             <property name="maximum">
+              <number>155</number>
+             </property>
+            </widget>
            </item>
            <item row="5" column="1" colspan="3">
-            <widget class="QSpinBox" name="direccion_y_spinBox"/>
+            <widget class="QSpinBox" name="direccion_y_spinBox">
+             <property name="maximum">
+              <number>155</number>
+             </property>
+            </widget>
            </item>
            <item row="6" column="1" colspan="2">
             <widget class="QSlider" name="velocidad_horizontalSlider">
@@ -209,7 +225,11 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QSpinBox" name="green_spinBox"/>
+            <widget class="QSpinBox" name="green_spinBox">
+             <property name="maximum">
+              <number>255</number>
+             </property>
+            </widget>
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="blue_label">
@@ -222,7 +242,11 @@
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QSpinBox" name="blue_spinBox"/>
+            <widget class="QSpinBox" name="blue_spinBox">
+             <property name="maximum">
+              <number>255</number>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -382,7 +406,16 @@
     <addaction name="actionGuardar"/>
     <addaction name="actionAbrir"/>
    </widget>
+   <widget class="QMenu" name="menuOrdenar">
+    <property name="title">
+     <string>Ordenar</string>
+    </property>
+    <addaction name="actionPor_ID"/>
+    <addaction name="actionPor_Distancia"/>
+    <addaction name="actionPor_Velocidad"/>
+   </widget>
    <addaction name="menuArchivo"/>
+   <addaction name="menuOrdenar"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionGuardar">
@@ -393,6 +426,21 @@
   <action name="actionAbrir">
    <property name="text">
     <string>Abrir (ctrl + o)</string>
+   </property>
+  </action>
+  <action name="actionPor_ID">
+   <property name="text">
+    <string>Por ID</string>
+   </property>
+  </action>
+  <action name="actionPor_Distancia">
+   <property name="text">
+    <string>Por Distancia</string>
+   </property>
+  </action>
+  <action name="actionPor_Velocidad">
+   <property name="text">
+    <string>Por Velocidad</string>
    </property>
   </action>
  </widget>
